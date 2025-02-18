@@ -3,3 +3,8 @@
 - https://rustwasm.github.io/wasm-bindgen/examples/web-audio.html  
 
 
+# ref
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API  
+- https://github.com/rustwasm/wasm-bindgen/tree/main/examples/webaudio  
+
