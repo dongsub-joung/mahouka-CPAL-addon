@@ -1,5 +1,23 @@
 use wasm_bindgen::prelude::*;
 use web_sys::{AudioContext, OscillatorType};
+use js_sys::{Promise, Object, Reflect};
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = ["browser", "storage", "managed"], js_name = get)]
+    fn get_storage(key: &str) -> Promise;
+}
+
+#[wasm_bindgen]
+pub async fn get_speed() -> Result<JsValue, JsValue> {
+    let promise = unsafe { get_storage("speed") };
+    let result = JsFuture::from(promise).await?;
+
+    // Extract "speed" from the returned JavaScript object
+    let speed_value = Reflect::get(&result, &JsValue::from_str("speed"))?;
+    
+    Ok(speed_value)
+}
 
 /// Converts a midi note to frequency
 ///
