@@ -1,14 +1,14 @@
 [package]
 authors = ["JoungDongsub"]
-name = "wasm_project webaudio addon"
+name = "wasm_project_webaudio_addon"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-crate-type = ["cdylib"]
-
 [dependencies]
 wasm-bindgen = { path = "../../" }
+
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies.web-sys]
 features = [
@@ -21,6 +21,3 @@ features = [
   'OscillatorType',
 ]
 path = "../../crates/web-sys"
-
-[lints]
-workspace = true
