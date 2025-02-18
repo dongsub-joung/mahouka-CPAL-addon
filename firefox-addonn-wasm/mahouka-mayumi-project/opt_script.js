@@ -1,16 +1,15 @@
 async function saveOptions(e) {
   e.preventDefault();
   await browser.storage.sync.set({
-    colour: document.querySelector("#colour").value
+    speed: document.querySelector("#optionsMenu").value
   });
 }
 
 async function restoreOptions() {
-  let res = await browser.storage.managed.get('colour');
-  document.querySelector("#managed-colour").innerText = res.colour;
+  let res = await browser.storage.managed.get('speed');
 
-  res = await browser.storage.sync.get('colour');
-  document.querySelector("#colour").value = res.colour || 'Firefox red';
+  res = await browser.storage.sync.get('speed');
+  document.querySelector("#optionsMenu").value = res.speed;
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
