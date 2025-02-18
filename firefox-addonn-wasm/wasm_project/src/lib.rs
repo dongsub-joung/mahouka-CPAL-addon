@@ -52,7 +52,9 @@ impl FmOsc {
         // Some initial settings:
         primary.set_type(OscillatorType::Sine);
         primary.frequency().set_value(440.0); // A4 note
-        gain.gain().set_value(0.0); // starts muted
+        // set value - gain
+        // TODO) save option -> integer
+        gain.gain().set_value(200.0);
         fm_gain.gain().set_value(0.0); // no initial frequency modulation
         fm_osc.set_type(OscillatorType::Sine);
         fm_osc.frequency().set_value(0.0);
